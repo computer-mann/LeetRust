@@ -46,7 +46,6 @@ pub fn find_first_missing_positive_int() -> i32 {
 pub fn find_first_unique_char_using_index_map() -> char{
     let the_word="bloomberg";
     let mut  map:IndexMap<char,u32>=IndexMap::new();
-    //the_word.chars().into_iter().for_each()
     for each_char in the_word.chars(){
         let count=map.entry(each_char).or_insert(0);
         *count+=1;
