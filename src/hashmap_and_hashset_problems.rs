@@ -21,7 +21,6 @@ pub fn find_first_unique_char_using_hashmap() -> char{
 }
 
 //first missing positive in the string
-
 pub fn find_first_missing_positive_int() -> i32 {
 
     let array=vec![0,-1,2,1,3,4,5,6,-6,-1,-7];
