@@ -1,11 +1,7 @@
-//expand string problem
-//https://leetcode.com/problems/decode-string/description/
-//Input: s = "3[a]2[bc]"
-// Output: "aaabcbc"
 
 extern crate queue;
 use queue::*;
-
+use crate::decode_string_problem::repeat_string;
 
 pub fn my_queues(){
     let mut q:Queue<u32>=Queue::new();
@@ -16,10 +12,13 @@ pub fn my_queues(){
     println!("{}",repeat_string("aa",2))
 }
 
-fn repeat_string(raw_string:&str,multiplier:u32) -> String{
-    let mut result=String::from("");
-    for _number in 0..multiplier{
-        result.push_str(raw_string);
+#[cfg(test)]
+mod tests{
+    use super::*;
+
+    #[test]
+    //#[should_panic]
+    pub fn test_no_panic(){
+        assert!(true)
     }
-    result
 }

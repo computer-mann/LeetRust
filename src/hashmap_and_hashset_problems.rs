@@ -1,4 +1,5 @@
 use std::collections::{HashMap, HashSet};
+use std::ops::Deref;
 use indexmap::IndexMap;
 
 pub fn find_first_unique_char_using_hashmap() -> char{
@@ -44,14 +45,18 @@ pub fn find_first_missing_positive_int() -> i32 {
 
 pub fn find_first_unique_char_using_index_map() -> char{
     let the_word="bloomberg";
-    let mut  map:IndexMap<char,u32>=IndexMap::new();
+    let mut char_count_map:IndexMap<char,u32>=IndexMap::new();
     for each_char in the_word.chars(){
-        let count=map.entry(each_char).or_insert(0);
+        let count= char_count_map.entry(each_char).or_insert(0);
         *count+=1;
     }
-    let ones:Vec<_>=map.iter().filter(|(_,value)| **value == 1).map(|(key,_)| key ).collect();
-    println!("{:?}",ones);
-    **ones.first().unwrap()
+    let char_result = char_count_map.into_iter()
+                    .filter_map(|(key,value)| if value == 1 {
+                        Some(key)
+                    }else { None }).nth(0);
+
+    println!("{:?}",&char_result.unwrap());
+    char_result.unwrap()
 }
 
 
@@ -59,6 +64,11 @@ pub fn find_first_unique_char_using_index_map() -> char{
 #[cfg(test)]
 mod tests{
     use super::*;
+
+    #[test]
+    pub fn index_map_unique(){
+        assert_eq!(find_first_unique_char_using_index_map(),'l')
+    }
 
     #[test]
     pub fn first_missing_possitive_is_seven(){
@@ -70,8 +80,5 @@ mod tests{
         assert_eq!(find_first_unique_char_using_hashmap(),'l')
     }
 
-    #[test]
-    pub fn index_map_unique(){
-        assert_eq!(find_first_unique_char_using_index_map(),'l')
-    }
+
 }
