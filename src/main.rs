@@ -6,6 +6,7 @@ mod divide_and_conquer_problems;
 mod tree_binary_problems;
 mod queue_problems;
 mod decode_string_problem;
+mod binary_trees;
 
 use crate::hashmap_and_hashset_problems::*;
 use crate::queue_problems::my_queues;
