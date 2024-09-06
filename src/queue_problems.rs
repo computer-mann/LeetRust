@@ -18,7 +18,7 @@ mod tests{
 
     #[test]
     //#[should_panic]
-    pub fn test_no_panic(){
+    pub fn test_should_not_panic(){
         assert!(true)
     }
 }
