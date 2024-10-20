@@ -9,6 +9,7 @@ mod decode_string_problem;
 mod binary_trees;
 mod linked_list_problems;
 mod reverse_words_in_a_string;
+mod boyer_moore;
 
 use crate::hashmap_and_hashset_problems::*;
 use crate::queue_problems::my_queues;
